@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/valor_real"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/et_valor_real"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150dp"
+        android:layout_marginTop="25dp"
+        android:hint="valor..."
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:inputType="numberDecimal" />
+
+    <!-- Valor Dollar -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/valor_dollar" />
+
+    <TextView
+        android:id="@+id/tv_valor_dollar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textSize="24sp" />
+
+    <!-- Valor Euro -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/valor_euro" />
+
+    <TextView
+        android:id="@+id/tv_valor_euro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textSize="24sp" />
+
+    <!-- Botao -->
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/text"
+        android:text="@string/calcular" />
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FindBeer</string>
+    <string-array name="tipo_cerveja">
+        <item>Pilsen</item>
+        <item>Weiser</item>
+        <item>Weiss</item>
+        <item>Bock</item>
+    </string-array>
+</resources>
