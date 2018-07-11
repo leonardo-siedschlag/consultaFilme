@@ -11,46 +11,23 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-import model.CEP;
+import model.Filme;
 
-public class CorreiosService extends AsyncTask<Void, Void, CEP>{
+public class FilmesService extends AsyncTask<Void, Void, Filme>{
 
-    private String cep;
+    private String filme;
 
-    public CorreiosService(String cep){
-
-        Log.d("AST", "construtor");
-
-        if (cep != null && cep.length() == 8){
-            this.cep = cep;
-        } else {
-            throw new IllegalArgumentException("CEP invalido");
-        }
+    public FilmesService(String filme){
+        this.filme = filme;
 
     }
 
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        Log.i("AST", "onPreExecute");
-
-    }
-
-    @Override
-    protected void onPostExecute(CEP cep) {
-        super.onPostExecute(cep);
-        Log.i("AST", "onPostExecute");
-
-    }
-
-    @Override
-    protected CEP doInBackground(Void... voids) {
-        Log.i("AST", "doInBackground");
-
+    protected Filme doInBackground(Void... voids) {
         StringBuilder resposta = new StringBuilder();
 
         try{
-            URL url = new URL("https://viacep.com.br/ws/"+this.cep+"/json/");
+            URL url = new URL("http://www.omdbapi.com/?t="+this.filme+"&apikey=7210c16b");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -64,6 +41,8 @@ public class CorreiosService extends AsyncTask<Void, Void, CEP>{
                 resposta.append(scanner.next());
             }
 
+            Log.d("RETORNO", resposta.toString());
+
         } catch (MalformedURLException e){
             e.printStackTrace();
         } catch (IOException e) {
@@ -71,6 +50,6 @@ public class CorreiosService extends AsyncTask<Void, Void, CEP>{
         }
 
 
-        return new Gson().fromJson(resposta.toString(), CEP.class);
+        return new Gson().fromJson(resposta.toString(), Filme.class);
     }
 }

@@ -1,4 +1,4 @@
-package br.edu.ifc.araquari.aula.consultacep;
+package br.edu.ifc.araquari.aula.consultaFilme;
 
 import org.junit.Test;
 

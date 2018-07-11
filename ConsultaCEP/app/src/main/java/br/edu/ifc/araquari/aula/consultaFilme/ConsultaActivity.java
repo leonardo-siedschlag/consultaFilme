@@ -1,42 +1,41 @@
-package br.edu.ifc.araquari.aula.consultacep;
+package br.edu.ifc.araquari.aula.consultaFilme;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
-import model.CEP;
-import service.CorreiosService;
+import model.Filme;
+import service.FilmesService;
 
 public class ConsultaActivity extends AppCompatActivity {
 
-    EditText edtCEP;
+    EditText edtFilmeNome;
     TextView tvResultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta);
+        setContentView(br.edu.ifc.araquari.aula.consultaFilme.R.layout.activity_consulta);
 
-        this.edtCEP = findViewById(R.id.edt_consulta_cep);
-        this.tvResultado = findViewById(R.id.tv_consulta_resultado);
+
+        this.edtFilmeNome = findViewById(br.edu.ifc.araquari.aula.consultaFilme.R.id.edt_consulta_filme);
+        this.tvResultado = findViewById(br.edu.ifc.araquari.aula.consultaFilme.R.id.tv_consulta_resultado);
 
     }
 
-    public void buscarCEP(View view) {
+    public void buscarFilme(View view) {
 
-        String cep = edtCEP.getText().toString();
+        String filme = edtFilmeNome.getText().toString();
 
         try {
 
-            CEP cepRetorno = new CorreiosService(cep).execute().get();
-            tvResultado.setText(cepRetorno.toString());
+            Filme filmeRetorno = new FilmesService(filme).execute().get();
+            tvResultado.setText(filmeRetorno.toString());
 
         } catch (InterruptedException e) {
             e.printStackTrace();
